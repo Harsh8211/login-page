@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create an Account - Bluestock</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"/>
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+    }
+
+    .container {
+      background-color: #fff;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .input-field {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+      transition: border 0.3s;
+    }
+
+    .input-field:focus {
+      outline: none;
+      border-color: #4c6ef5;
+    }
+
+    .eye-icon {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+    }
+
+    .captcha-section {
+      display: flex;
+      align-items: center;
+      padding: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+
+    .captcha-checkbox {
+      margin-right: 10px;
+    }
+
+    .btn-signup {
+      background-color: #4c6ef5;
+      color: #fff;
+      padding: 1rem;
+      border-radius: 8px;
+      width: 100%;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-signup:hover {
+      background-color: #3b5bdb;
+    }
+
+    .btn-google {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      padding: 1rem;
+      border-radius: 8px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-google:hover {
+      background-color: #f1f3f5;
+    }
+
+    .btn-google img {
+      margin-right: 10px;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    .text-sm {
+      font-size: 0.875rem;
+    }
+
+    .text-gray-500 {
+      color: #6b7280;
+    }
+
+    .text-blue-500 {
+      color: #4c6ef5;
+    }
+
+    .divider {
+      margin: 1.5rem 0;
+      border-top: 1px solid #ddd;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .divider span {
+      margin: 0 10px;
+      font-size: 0.875rem;
+      color: #6b7280;
+    }
+
+    .divider hr {
+      width: 100%;
+      border: 0;
+      border-top: 1px solid #ddd;
+    }
+
+    .footer-link {
+      color: #4c6ef5;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+  <div class="container">
+    <div class="flex justify-center mb-6">
+      <img alt="Bluestock logo" class="h-12" height="50" src="logo.png" width="250"/>
+    </div>
+    <h2 class="text-2xl font-bold text-center mb-6">
+      Create an account
+    </h2>
+    <form id="signup-form">
+      <div class="mb-4">
+        <label class="block text-gray-700">
+          Name
+        </label>
+        <input id="name" class="input-field" type="text" value=""/>
+      </div>
+      <div class="mb-4">
+        <label class="block text-gray-700">
+          Email Address
+        </label>
+        <input id="email" class="input-field" type="email" value="hello@bluestock.in"/>
+      </div>
+      <div class="mb-4 relative">
+        <label class="block text-gray-700">
+          Password
+        </label>
+        <input id="password" class="input-field pr-10" type="password" value=""/>
+        <i id="eye-icon" class="fas fa-eye eye-icon text-gray-500"></i>
+      </div>
+      
+      <div class="captcha-section mb-4">
+        <input class="captcha-checkbox" type="checkbox"/>
+        <span class="text-gray-700">
+          I'm not a robot
+        </span>
+        <img alt="reCAPTCHA" class="ml-2" height="40" src="recaptcha-icon.png" width="40"/>
+      </div>
+      <button type="submit" class="btn-signup">
+        Sign up
+      </button>
+    </form>
+    <div class="divider">
+      <span>or sign up with</span>
+    </div>
+    <button class="btn-google" onclick="googleSignIn()">
+      <img alt="Google logo" class="mr-2" height="20" src="google-color-icon.png" width="20"/>
+      Continue with Google
+    </button>
+    <div class="text-center mt-4 text-sm text-gray-600">
+      Already have an account?
+      <a class="footer-link" href="login.html">
+        Sign in here
+      </a>
+    </div>
+  </div>
+
+  <script>
+    // Toggle password visibility
+    const eyeIcon = document.getElementById('eye-icon');
+    const passwordField = document.getElementById('password');
+    let isPasswordVisible = true;
+
+    eyeIcon.addEventListener('click', () => {
+      if (isPasswordVisible) {
+        passwordField.type = 'password';
+        eyeIcon.classList.remove('fa-eye-slash');
+        eyeIcon.classList.add('fa-eye');
+      } else {
+        passwordField.type = 'text';
+        eyeIcon.classList.remove('fa-eye');
+        eyeIcon.classList.add('fa-eye-slash');
+      }
+      isPasswordVisible = !isPasswordVisible;
+    });
+
+    // Handle sign up form submission
+    const signupForm = document.getElementById('signup-form');
+    signupForm.addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent form from refreshing the page
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+
+      // Here you can send the data to your backend for processing
+      alert(`Sign up successful! Welcome ${name}`);
+    });
+
+    // Simulate Google sign-in
+    function googleSignIn() {
+      alert('Google sign-in initiated!');
+      // You would add your Google OAuth logic here
+    }
+  </script>
+</body>
+</html>

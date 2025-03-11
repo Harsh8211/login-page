@@ -1,0 +1,127 @@
+<html>
+  <head>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <style>
+      body {
+        background-color: #f7fafc;
+        font-family: 'Arial', sans-serif;
+      }
+      .form-container {
+        max-width: 500px;
+        width: 100%;
+        padding: 40px;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+      .input-field {
+        border-radius: 8px;
+        padding: 12px;
+        border: 1px solid #ccc;
+        width: 100%;
+        font-size: 14px;
+      }
+      .input-field:focus {
+        outline: none;
+        border-color: #6b46c1;
+      }
+      .button-primary {
+        background-color: #6b46c1;
+        color: white;
+        font-weight: bold;
+        padding: 12px 24px;
+        border-radius: 6px;
+        transition: background-color 0.3s;
+      }
+      .button-primary:hover {
+        background-color: #553c9a;
+      }
+      .link {
+        color: #3182ce;
+        text-decoration: none;
+      }
+      .link:hover {
+        text-decoration: underline;
+      }
+      .google-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #f7fafc;
+        padding: 12px;
+        border-radius: 6px;
+        width: 100%;
+        border: 1px solid #e2e8f0;
+      }
+      .google-btn img {
+        margin-right: 10px;
+      }
+      .google-btn:hover {
+        background-color: #edf2f7;
+      }
+    </style>
+  </head>
+  <body class="flex items-center justify-center min-h-screen bg-gray-100">
+    <div class="form-container">
+      <div class="flex justify-center mb-6">
+        <img alt="Bluestock logo with stylized text" class="h-11" height="16px" src="logo.png" width="250"/>
+      </div>
+      <form>
+        <div class="mb-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
+            Email Address
+          </label>
+          <input class="input-field" id="email" type="email" value="johndoe@gmail.com"/>
+        </div>
+        <div class="mb-4 relative">
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
+            Password
+          </label>
+          <input class="input-field" id="password" type="password" value="............."/>
+          <a class="absolute right-0 top-0 mt-8 mr-3 text-sm text-blue-500" href="forgetpassword.html">
+            Forgot Password?
+          </a>
+        </div>
+        <div class="mb-4">
+          <div class="flex items-center">
+            <input checked="" class="form-checkbox h-5 w-5 text-green-500" type="checkbox"/>
+            <span class="ml-2 text-gray-700">
+              I'm not a robot
+            </span>
+            <img alt="reCAPTCHA logo" class="ml-auto h-10" height="70" src="recaptcha-icon.png" width=""/>
+          </div>
+        </div>
+        <div class="mb-4">
+          <div class="flex items-center">
+            <input checked="" class="form-checkbox h-5 w-5 text-purple-500" type="checkbox"/>
+            <span class="ml-2 text-gray-700">
+              Keep me signed in
+            </span>
+          </div>
+        </div>
+        <div class="mb-4">
+          <button class="button-primary w-full focus:outline-none" type="button">
+            Login
+          </button>
+        </div>
+        <div class="flex items-center justify-center mb-4">
+          <span class="text-gray-500">
+        or sign in with
+          </span>
+        </div>
+        <div class="mb-4">
+          <button class="google-btn" type="button">
+            <img alt="Google logo" class="h-5 mr-2" height="20" src="google-color-icon.png" width="20"/>
+            Continue with Google
+          </button>
+        </div>
+        <div class="flex items-center justify-center">
+          <a class="link" href="signup.html">
+            Create an account
+          </a>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
